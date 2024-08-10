@@ -1,9 +1,7 @@
-#this tools installaton available for linxu ubuntu tools is below 
+# This tools installaton available for linxu ubuntu.
 
-#Tools to be install 
-#1 awscli
 
-# Installing AWS CLI
+# 1 Installing AWS CLI
 
 curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
 
@@ -13,7 +11,8 @@ unzip awscliv2.zip
 
 sudo ./aws/install
 
-#2 kubectl
+
+# 2 kubectl installation
 
 sudo apt update
 
@@ -28,9 +27,8 @@ sudo mv kubectl /usr/local/bin/
 kubectl version --client
 
 
-#3 eksctl 
 
-# Installing eksctl
+# 3 Installing eksctl
 
 curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/download/eksctl_$(uname -s)_amd64.tar.gz" | tar xz -C /tmp
 
@@ -38,8 +36,8 @@ sudo mv /tmp/eksctl /usr/local/bin
 
 eksctl version
 
-#4 java
-# Intsalling Java
+
+# 4 Intsalling Java
 
 sudo apt update -y
 
@@ -49,8 +47,8 @@ sudo apt install openjdk-17-jdk -y
 
 java --version
 
-#5 jenkins
-# Installing Jenkins
+
+# 5 Installing Jenkins
 
 curl -fsSL https://pkg.jenkins.io/debian/jenkins.io-2023.key | sudo tee \
   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
@@ -62,8 +60,8 @@ sudo apt-get update -y
 
 sudo apt-get install jenkins -y
 
-#6 docker
-# Installing Docker 
+
+# 6 Installing Docker 
 
 sudo apt update 
 
@@ -78,22 +76,18 @@ sudo systemctl restart docker
 sudo chmod 777 /var/run/docker.sock
 
 
-#7 sonarqube
 
+# 7 sonarqube docker container creation
 
 # If you don't want to install Jenkins, you can create a container of Jenkins
 # docker run -d -p 8080:8080 -p 50000:50000 --name jenkins-container jenkins/jenkins:lts
 
 # Run Docker Container of Sonarqube
 
-
 docker run -d  --name sonar -p 9000:9000 sonarqube:lts-community
 
-#8 triy 
 
-# Trivy installation 
-
-# Installing Trivy
+# 8 Trivy installation 
 
 
 sudo apt-get install wget apt-transport-https gnupg lsb-release -y
@@ -106,15 +100,15 @@ sudo apt update
 
 sudo apt install trivy -y
 
-#9 helm
 
-# Helm installation via snap package
+#  helm
+
+# 9 Helm installation via snap package
 
 sudo snap install helm --classic
 
-#10 # terraform
 
-# Installing Terraform
+# 10 Installing Terraform
 
 
 wget -O- https://apt.releases.hashicorp.com/gpg | sudo gpg --dearmor -o /usr/share/keyrings/hashicorp-archive-keyring.gpg
@@ -126,13 +120,13 @@ sudo apt update
 sudo apt install terraform -y
 
 
-#11 argocd 
+# 11 argocd 
 
 kubectl create namespace argocd
 
 kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-#12 argocd-cli
+# 12 argocd-cli
 
 # argocd cli 
 
