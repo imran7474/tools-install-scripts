@@ -71,9 +71,12 @@ sudo apt update
 sudo apt install trivy -y
 
 
-# Intalling Helm
-
-sudo snap install helm --classic
+# Intalling Helm 
+ curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/main/scripts/get-helm-3
+ chmod 700 get_helm.sh
+ ./get_helm.sh
+# alternative u can install via snap pkg
+#sudo snap install helm --classic
 
 
 # thiss argocd tool will be only installing  on any cluster  like minikube k3s eks aks gke 
