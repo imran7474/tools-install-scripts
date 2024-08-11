@@ -261,6 +261,7 @@ after that you will get a long join command that you run on worker node the join
  kubeadm join 172.31.39.26:6443 --token 1e904d.1dcfk9hbkjy6w2bc --discovery-token-ca-cert-hash sha256:0ab851180e2764e7c4ab47e3d802ec84ae1cc4c10e75c3bad8f84b26950d2057
 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # all master and worker nodes is ready then run network plugin to install network plugn calico 
 
 # Again on the Master Node 
@@ -268,9 +269,13 @@ after that you will get a long join command that you run on worker node the join
  # Install Calico for our Networking part.
 
  kubectl apply -f https://docs.projectcalico.org/v3.20/manifests/calico.yaml 
+ 
 #----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
 # nginx ingress controller onmaster 
+
 # Next run this for the Ingress Controller
 
  kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.49.0/deploy/static/provider/baremetal/deploy.yaml
+ 
 #------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
