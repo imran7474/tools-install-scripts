@@ -252,13 +252,25 @@ echo "Kubernetes components installed and system configured successfully."
 
 # note
 
-#after this run succesfully the run below command and open port 6443 and run below command on master and the will be give join command to run on worker node .. do not run join command on  master node 
+after this run succesfully the run below command and open port 6443 and run below command on master and the will be give join command to run on worker node .. do not run join command on  master node 
 
-# sudo kubeadm init --pod-network-cidr=10.244.0.0/16
+ sudo kubeadm init --pod-network-cidr=10.244.0.0/16
 
-#after that you will get a long join command that you run on worker node the joind command will be look like thhis but do not use becuase this is unique for everyone 
+after that you will get a long join command that you run on worker node the joind command will be look like thhis but do not use becuase this is unique for everyone 
 
-# kubeadm join 172.31.39.26:6443 --token 1e904d.1dcfk9hbkjy6w2bc --discovery-token-ca-cert-hash sha256:0ab851180e2764e7c4ab47e3d802ec84ae1cc4c10e75c3bad8f84b26950d2057
+ kubeadm join 172.31.39.26:6443 --token 1e904d.1dcfk9hbkjy6w2bc --discovery-token-ca-cert-hash sha256:0ab851180e2764e7c4ab47e3d802ec84ae1cc4c10e75c3bad8f84b26950d2057
 
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# all master and worker nodes is ready then run network plugin to install network plugn calico 
 
-and deploy argocd yml in k8s folder
+# Again on the Master Node 
+
+ # Install Calico for our Networking part.
+
+ kubectl apply -f https://docs.projectcalico.org/v3.20/manifests/calico.yaml 
+#----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# nginx ingress controller onmaster 
+# Next run this for the Ingress Controller
+
+ kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.49.0/deploy/static/provider/baremetal/deploy.yaml
+#------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
