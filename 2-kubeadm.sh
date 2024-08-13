@@ -49,21 +49,22 @@ sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubun
 sudo apt update
 sudo apt install -y containerd.io docker-ce docker-ce-cli
 
-# Create Docker directories
-sudo mkdir -p /etc/systemd/system/docker.service.d
+# if necessory then uncomment -----------------------------------------------------------------------------------------
+# # Create Docker directories
+# sudo mkdir -p /etc/systemd/system/docker.service.d
 
-# Create daemon.json for Docker
-sudo tee /etc/docker/daemon.json <<EOF
-{
-  "exec-opts": ["native.cgroupdriver=systemd"],
-  "log-driver": "json-file",
-  "log-opts": {
-    "max-size": "100m"
-  },
-  "storage-driver": "overlay2"
-}
-EOF
-
+# # Create daemon.json for Docker
+# sudo tee /etc/docker/daemon.json <<EOF
+# {
+#   "exec-opts": ["native.cgroupdriver=systemd"],
+#   "log-driver": "json-file",
+#   "log-opts": {
+#     "max-size": "100m"
+#   },
+#   "storage-driver": "overlay2"
+# }
+# EOF
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # Start and enable Docker
 sudo systemctl daemon-reload
 sudo systemctl restart docker
